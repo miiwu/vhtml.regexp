@@ -1,4 +1,4 @@
-import { match_element, filter_element } from "./vregexp.js";
+import { match_element, filter_element } from "../src/vhtml.regexp.js";
 
 console.log("hello vhtml.regexp demo.js\n");
 

@@ -1,0 +1,68 @@
+hello vhtml.regexp demo.js
+
+{tag: '<!doctype html>', ctt: '', type: '!doctype html'}
+--------------------------------------------------
+{tag: '<html>', ctt: '', type: 'html'}
+--------------------------------------------------
+{tag: '<head>', ctt: '', type: 'head'}
+--------------------------------------------------
+{tag: '</br>', ctt: '', type: '/br'}
+--------------------------------------------------
+{tag: '<title>', ctt: '', type: 'title'}
+--------------------------------------------------
+{tag: '<title>', ctt: '', type: 'title'}
+--------------------------------------------------
+{tag: '</title>', ctt: '#1', type: '/title'}
+--------------------------------------------------
+{tag: '</title>', ctt: '#2', type: '/title'}
+--------------------------------------------------
+{tag: '</br>', ctt: '', type: '/br'}
+--------------------------------------------------
+{tag: '<a href="https://localhost/miiwu">', ctt: '', type: 'a href="https://localhost/miiwu"'}
+--------------------------------------------------
+{tag: '</br>', ctt: '', type: '/br'}
+--------------------------------------------------
+{tag: '<p>', ctt: '', type: 'p'}
+--------------------------------------------------
+{tag: '</p>', ctt: 'miiwu', type: '/p'}
+--------------------------------------------------
+{tag: '</br>', ctt: '', type: '/br'}
+--------------------------------------------------
+{tag: '<link href="https://localhost/miiwu">', ctt: '', type: 'link href="https://localhost/miiwu"'}
+--------------------------------------------------
+{tag: '</br>', ctt: '', type: '/br'}
+--------------------------------------------------
+{tag: '<meta data-n-head="1" charset="utf-8">', ctt: '', type: 'meta data-n-head="1" charset="utf-8"'}
+--------------------------------------------------
+{tag: '<script>', ctt: '', type: 'script'}
+--------------------------------------------------
+{tag: '</script>', ctt: 'import harm;', type: '/script'}
+--------------------------------------------------
+{tag: '<title>', ctt: '', type: 'title'}
+--------------------------------------------------
+{tag: '</title>', ctt: '#3', type: '/title'}
+--------------------------------------------------
+{tag: '</head>', ctt: '', type: '/head'}
+--------------------------------------------------
+{tag: '</html>', ctt: '', type: '/html'}
+--------------------------------------------------
+>> {tag: '/br', ctt: '', aie: ''}
+>> {tag: 'title', ctt: '', aie: ''}
+>> {tag: 'title', ctt: '', aie: ''}
+>> {tag: '/title', ctt: '#1', aie: ''}
+>> {tag: '/title', ctt: '', aie: ''}
+>> {tag: '/br', ctt: '', aie: ''}
+>> {tag: 'a', ctt: '', aie: ''}
+>> {tag: '/br', ctt: '', aie: ''}
+>> {tag: 'p', ctt: '', aie: ''}
+>> {tag: '/p', ctt: 'miiwu', aie: ''}
+>> {tag: '/br', ctt: '', aie: ''}
+>> {tag: 'link', ctt: '', aie: ' href="https://localhost/miiwu"'}
+>> {tag: '/br', ctt: '', aie: ''}
+>> {tag: 'title', ctt: '', aie: ''}
+>> {tag: '/title', ctt: '#3', aie: ''}
+
+vhtml.html : </br><title><title>#1</title></title></br><a></br><p>miiwu</p></br><link href="https://localhost/miiwu"></br><title>#3</title>
+vhtml.text : miiwu
+
+bye vhtml.regexp demo.js

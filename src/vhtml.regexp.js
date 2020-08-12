@@ -1,3 +1,13 @@
+/**
+ * [vhtml.regexp]{@link https://github.com/miiwu/vhtml.regexp}
+ *
+ * @namespace vhtml.regexp
+ * @version 0.1.1
+ * @author miiwu [i.miiwu@outlook.com]
+ * @copyright miiwu
+ * @license Apache License 2.0
+ */
+
 function match_element(string, callback = function (tag, content, type, match) {}, regexp = /([^<>]*)(<([^>]+)>)/) {
     let match_me;
 
@@ -40,7 +50,7 @@ function filter_element(
 
             if (!!match_fe) {
                 let allow_fe = {},
-                    pkg_fe = { tag: "", ctt: "", aie: "" };
+                    pkg_fe = { tag: "", ctt: content, aie: "" };
 
                 for (let idx = 1; idx < match_fe.length; idx++) {
                     if (!!match_fe[idx]) {
