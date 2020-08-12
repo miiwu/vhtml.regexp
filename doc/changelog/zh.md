@@ -1,5 +1,19 @@
 # 变更日志
 
+## 1.0.0 (2020/08/12)
+
+#### 特性：
+
+- `filter_element()`：整理 `可选配置` 到 `arguments.config`
+- `filter_element()`：支持 `allow / block mode`，需配置 `arguments.config.allow`
+- `filter_element()`：重命名 `list[].tag` 为 `list[].type`
+- `demo.html`：更新 `/npm/package@version`
+
+#### 文档：
+
+- `readme.md`：更新
+- `package.json`：更新
+
 ## 0.1.1 (2020/08/12)
 
 #### 特性：

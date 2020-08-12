@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.0.0 (2020/08/12)
+
+#### feature：
+
+- `filter_element()`: tidy `optional configurations` to `arguments.config`
+- `filter_element()`: support `allow / block mode`, config by `arguments.config.allow`
+- `filter_element()`: rename `list[].tag` to `list[].type`
+- `demo.html`: update `/npm/package@version`
+
+#### docs:
+
+- `readme.md`: update
+- `package.json`: update
+
 ## 0.1.1 (2020/08/12)
 
 #### feature:
