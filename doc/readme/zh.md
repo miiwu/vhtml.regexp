@@ -78,8 +78,8 @@ npm install vhtml.regexp
         - `block mode`<sup>*allow = false*</sup>：将会 `剔除` 匹配  `list` 的元素
      2. `callback`<sup>*object*</sup>：回调函数
         - `match = function(element){}`<sup>*function*</sup>：匹配
-
         - `miss = function(element){}`<sup>*function*</sup>：不匹配
+        - `extension = function(string, elements){}`<sup>*function*</sup>：过滤完成
 
      3. `regexp = /([^<>]*)(<([^ >]*) ?([^>]*)>)/`<sup>*regexp*</sup>：对应 `match_element()` 中的 `regexp`
 

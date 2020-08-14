@@ -1,6 +1,6 @@
 hello vhtml demo.js
 
-{html: '<!doctype html><html><head></br><title><title>…rm();</script><title>#3</title></head></html>', text: 'miiwu'}
+{html: '<!doctype html><html><head></br><title><title>…rm();</script><title>#3</title></head></html>', nomatch: '<!doctype html><html><head><script type="tex…>import harm; harm();</script></head></html>', text: 'miiwu'}
 
 {content: '', tag: '<!doctype html>', type: '!doctype', attribute: 'html'}
 --------------------------------------------------
@@ -20,7 +20,9 @@ hello vhtml demo.js
 --------------------------------------------------
 {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
-{content: '', tag: '<a href="https://localhost/miiwu">', type: 'a', attribute: 'href="https://localhost/miiwu"'}
+{content: '', tag: '<a class="error" href="https://localhost.com/miiwu">', type: 'a', attribute: 'class="error" href="https://localhost.com/miiwu"'}
+--------------------------------------------------
+{content: 'click', tag: '</a>', type: '/a', attribute: ''}
 --------------------------------------------------
 {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
@@ -49,6 +51,7 @@ hello vhtml demo.js
 {content: '', tag: '</html>', type: '/html', attribute: ''}
 --------------------------------------------------
 
+pattern: .[^.]*.localhost.com
 allow.>> {content: '', tag: '<!doctype html>', type: '!doctype', attribute: 'html'}
 --------------------------------------------------
 allow.>> {content: '', tag: '<html>', type: 'html', attribute: ''}
@@ -67,7 +70,9 @@ allow.xx {content: '', tag: '</title>', type: '/title', attribute: ''}
 --------------------------------------------------
 allow.xx {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '<a href="https://localhost/miiwu">', type: 'a', attribute: ''}
+allow.xx {content: '', tag: '<a class="error" href="https://localhost.com/miiwu">', type: 'a', attribute: ''}
+--------------------------------------------------
+allow.xx {content: 'click', tag: '</a>', type: '/a', attribute: ''}
 --------------------------------------------------
 allow.xx {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
@@ -113,7 +118,9 @@ block.>> {content: '', tag: '</title>', type: '/title', attribute: ''}
 --------------------------------------------------
 block.xx {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
-block.>> {content: '', tag: '<a href="https://localhost/miiwu">', type: 'a', attribute: ''}
+block.>> {content: '', tag: '<a class="error" href="https://localhost.com/miiwu">', type: 'a', attribute: ''}
+--------------------------------------------------
+block.>> {content: 'click', tag: '</a>', type: '/a', attribute: ''}
 --------------------------------------------------
 block.xx {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
@@ -141,9 +148,12 @@ block.>> {content: '', tag: '</head>', type: '/head', attribute: ''}
 --------------------------------------------------
 block.>> {content: '', tag: '</html>', type: '/html', attribute: ''}
 --------------------------------------------------
+raw text: miiwu
 
-vhtml.html.allow : </br><title><title>#1</title></title></br><a></br><p>miiwu</p></br><link href="https://localhost/miiwu"></br><title>#3</title>
-vhtml.html.block : </br><title><title>#1</title></title></br><a></br><p>miiwu</p></br><link href="https://localhost/miiwu"></br><title>#3</title>
+vhtml.html.allow : </br><title><title>#1</title></title></br><a>click</a></br><p>miiwu</p></br><link href="https://localhost/miiwu"></br><title>#3</title>
+vhtml.html.block : </br><title><title>#1</title></title></br><a>click</a></br><p>miiwu</p></br><link href="https://localhost/miiwu"></br><title>#3</title>
+vhtml.attribute : <a>click</a>
+vhtml.nomatch :
 vhtml.text : miiwu
 
 bye vhtml demo.js

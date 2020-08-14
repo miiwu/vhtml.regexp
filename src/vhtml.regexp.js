@@ -12,14 +12,16 @@ function match_element(string, callback = function (element) {}, regexp = /([^<>
     let match_me;
 
     while (true) {
-        if (!(match_me = string.match(regexp))) break; // 如果 `正则匹配` 失败，退出
+        if (!(match_me = string.match(regexp)) || !match_me[0].length) break; // 如果 `正则匹配` 失败 || 没匹配到东西，退出
 
-        callback({
-            content: match_me[1],
-            tag: match_me[2],
-            type: match_me[3],
-            attribute: match_me[4],
-        });
+        if (5 <= match_me.length) {
+            callback({
+                content: match_me[1],
+                tag: match_me[2],
+                type: match_me[3],
+                attribute: match_me[4],
+            });
+        }
 
         string = string.slice(match_me[0].length); // 字符串前移，`正则表达式` 匹配到的长度
     }
@@ -34,25 +36,19 @@ function filter_regexp(string, regexp = ".*") {
 
 function filter_element(string, list = [], config = {}) {
     function concat_element(emt) {
-        string_fe = string_fe.concat(
+        elements.string = elements.string.concat(
             `${emt.content}<${emt.type}${!!emt.attribute ? " " + emt.attribute : emt.attribute}>`
         );
-    }
+    } // 合并 `元素` 字符串
 
-    let elements = { pattern: "", table: [] };
-    let string_fe = "";
+    function callback(type) {
+        if (!!config.callback && !!config.callback[type])
+            return config.callback[type](arguments[1], arguments[2], arguments[3]);
+    } // 处理 `回调函数`
 
-    config = Object.assign(
-        {
-            allow: true,
-            callback: {
-                match: function (element) {},
-                miss: function (element) {},
-            },
-            regexp: /([^<>]*)(<([^ >]*) ?([^>]*)>)/,
-        },
-        config
-    ); // 合并 `配置参数`
+    let elements = { pattern: "", table: [], string: "", extension: "" };
+
+    config = Object.assign({ allow: true, regexp: /([^<>]*)(<([^ >]*) ?([^>]*)>)/ }, config); // 合并 `配置`
 
     let handler_fe = [
         {
@@ -95,12 +91,12 @@ function filter_element(string, list = [], config = {}) {
 
             if (!match_fe) {
                 handler_fe.miss(emt);
-                config.callback.miss(emt);
+                callback("miss", emt);
             } else {
                 for (let idx = 1; idx < match_fe.length; idx++) {
                     if (!!match_fe[idx]) {
                         handler_fe.match(emt, list[elements.table[idx - 1]]);
-                        config.callback.match(emt);
+                        callback("match", emt);
 
                         break;
                     }
@@ -110,7 +106,9 @@ function filter_element(string, list = [], config = {}) {
         config.regexp
     ); // 匹配 `元素`
 
-    return string_fe.length ? string_fe : string;
+    elements.extension = callback("extension", elements, string, config);
+
+    return !!elements.extension ? elements.extension : elements.string;
 }
 
 export { match_element, filter_element, filter_regexp };

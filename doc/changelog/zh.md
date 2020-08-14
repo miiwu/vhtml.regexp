@@ -1,5 +1,23 @@
 # 变更日志
 
+## 1.0.1 (2020/08/14)
+
+#### 特性：
+
+- `match_element()`：避免一些由 `arguments.regexp` 引起的 `无限循环`
+- `filter_element()`：增加  `callback.extension()`，当过滤完成时调用
+- `filter_element()`：移除对 `纯文本` 的支持，但是可以通过 `callback.extension()` 扩展实现
+- `demo.js`：增加 `nomach` & `attribute`
+
+#### 修复：
+
+- `filter_element()`：混淆 `纯文本` 和 `无匹配`
+
+#### 文档：
+
+- `readme.md`：更新
+- `package.json`：更新
+
 ## 1.0.0 (2020/08/12)
 
 #### 特性：

@@ -1,6 +1,6 @@
 {
     "name": "vhtml.regexp",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Filter Elements You Want of HTML By RegExp.",
     "main": "src/vhtml.regexp.js",
     "scripts": {

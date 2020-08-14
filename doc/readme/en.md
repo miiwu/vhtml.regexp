@@ -76,8 +76,8 @@ npm install vhtml.regexp
         - `block mode`<sup>*allow = false*</sup>: would `reject` elements match `list`
      2. `callback`<sup>*object*</sup>: callback function
         - `match = function(element){}`<sup>*function*</sup>: called when `match`
-   
         - `miss = function(element){}`<sup>*function*</sup>: called when `miss` or  `mismatch`
+        - `extension = function(string, elements){}`<sup>*function*</sup>: called when filter complete
    
      3. `regexp = /([^<>]*)(<([^ >]*) ?([^>]*)>)/`<sup>*regexp*</sup>: correspond the `regexp` of `match_element()`
 
