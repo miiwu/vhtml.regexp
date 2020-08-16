@@ -29,23 +29,26 @@ npm install vhtml.regexp
 1. Overview
 
    ```javascript
-   function match_element(string, callback = function (element) {}, regexp = /([^<>]*)(<([^ >]*) ?([^>]*)>)/);
+   function match_element(string, callback = function (element, tool) {}, regexp = /([^<>]*)(<([^ >]*) ?([^>]*)>)/);
    ```
    
 2. Arguments
 
    - `string`<sup>*string*</sup>: input string
 
-   - `callback = function (element) {}`<sup>*funcion*</sup>: callback function
+   - `callback = function (element, tool) {}`<sup>*funcion*</sup>: callback function
+
+     1. `tool.index`<sup>*integer*</sup>: the index of element
+     2. `tool.match`<sup>*object*</sup>: the `return value` of `.match(regexp)`
 
    - `regexp = /([^<>]*)(<([^ >]*) ?([^>]*)>)/`<sup>*regexp*</sup>: `regexp pattern` catches the elements
      
      Your `regexp pattern` must observe these:
      
-     1. `element.content = .match(regexp)[1]`
-     2. `element.tag = .match(regexp)[2]`
-     3. `element.type = .match(regexp)[3]`
-     4. `element.attribute = .match(regexp)[4]`
+     1. `element.content = .match(regexp)[1]`<sup>*string*</sup>
+     2. `element.tag = .match(regexp)[2]`<sup>*string*</sup>
+     3. `element.type = .match(regexp)[3]`<sup>*string*</sup>
+     4. `element.attribute = .match(regexp)[4]`<sup>*string*</sup>
 
 
 3. Return
@@ -66,19 +69,23 @@ npm install vhtml.regexp
 
    - `list = []`<sup>*object[]*</sup>: match list
 
-     1. `type`<sup>*string[]*</sup>: type of element, such as 'html'
-     2. `content`<sup>*string -> regexp*</sup>: content of element, such as /miiwu/
-     3. `attribute`<sup>*string -> regexp*</sup>: content of attribute, such as /href="https:\/\/localhost"/
+     1. `type`<sup>*string[]*</sup>: type of element, such as `'html'`
+     2. `content`<sup>*string -> regexp*</sup>: content of element, such as `/miiwu/`
+     3. `attribute`<sup>*string -> regexp*</sup>: content of attribute, such as `/href="https:\/\/localhost"/`
 
    - `config = {}`<sup>*object*</sup>: optional configurations
      1. `allow = true`<sup>*boolean*</sup>: match mode
         - `allow mode`<sup>*allow = true*</sup>: would `retain` elements match `list`
         - `block mode`<sup>*allow = false*</sup>: would `reject` elements match `list`
      2. `callback`<sup>*object*</sup>: callback function
-        - `match = function(element){}`<sup>*function*</sup>: called when `match`
-        - `miss = function(element){}`<sup>*function*</sup>: called when `miss` or  `mismatch`
-        - `extension = function(string, elements){}`<sup>*function*</sup>: called when filter complete
-   
+        - `match = function(element) {}`<sup>*function*</sup>: called when `match`
+
+        - `miss = function(element) {}`<sup>*function*</sup>: called when `miss` or  `mismatch`
+
+        - `extension = function (element, tool) {}`<sup>*function*</sup>: called when filter complete
+
+           see also `match_element().callback()`
+
      3. `regexp = /([^<>]*)(<([^ >]*) ?([^>]*)>)/`<sup>*regexp*</sup>: correspond the `regexp` of `match_element()`
 
 3. Return

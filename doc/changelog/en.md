@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.0.2 (2020/08/16)
+
+#### feat:
+
+- `vhtml.regexp.js`: `use strict`
+- `vhtml.regexp.js`:  `match_element()`, add `arguments.tool` to `.callback()`
+- `vhtml.regexp.js`: re-support `plain-text `
+- `vhtml.regexp.js`: `filter_element()`, change `.callback.extension()` to act as  `match_element().callback()`
+- `demo.js`: add `object.no_element` & `object.half_element`, remove `text`, rename `nomatch` to `no_match`
+
+#### fix: 
+
+- `demo.js`: fix `pattern` of `attribute`
+- `vhtml.regexp.js`: exception when type of `arguments.string` is not `string`
+- `vhtml.regexp.js`: lose string after last element
+
+#### docs:
+
+- `readme.md`: update
+- `changelog.md`: update
+- `package.json`: update
+
 ## 1.0.1 (2020/08/14)
 
 #### feat：
@@ -15,7 +37,7 @@
 
 #### docs:
 
-- `readme.md`: update
+- `changelog.md`: update
 - `package.json`: update
 
 ## 1.0.0 (2020/08/12)

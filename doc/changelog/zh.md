@@ -1,5 +1,27 @@
 # 变更日志
 
+## 1.0.2 (2020/08/16)
+
+#### 特性：
+
+- `vhtml.regexp.js`：`严格模式`
+- `vhtml.regexp.js`：`match_element()`，为 `.callback()` 增加 `.tool` 参数
+- `vhtml.regexp.js`：重新支持 `纯文本`
+- `vhtml.regexp.js`：`filter_element()`，让 `.callback.extension()` 作为  `match_element().callback()` 的延续
+- `demo.js`：增加 `object.no_element` & `object.half_element`，移除 `text`，重命名 `nomatch` 为 `no_match`
+
+#### 修复: 
+
+- `demo.js`：修复匹配 `attribute` 的 `pattern`
+- `vhtml.regexp.js`：异常情况，当 `arguments.string` 的类型不是 `string` 时
+- `vhtml.regexp.js`：丢失最后一个元素之后的字符
+
+#### 文档:
+
+- `readme.md`：更新
+- `changelog.md`：更新
+- `package.json`：更新
+
 ## 1.0.1 (2020/08/14)
 
 #### 特性：

@@ -1,104 +1,106 @@
 hello vhtml demo.js
 
-{html: '<!doctype html><html><head></br><title><title>…rm();</script><title>#3</title></head></html>', nomatch: '<!doctype html><html><head><script type="tex…>import harm; harm();</script></head></html>', text: 'miiwu'}
+string: {html: '<!doctype html><html><head></br><title><title>…rm();</script><title>#3</title></head></html>', attribute: '<a href="https://localhost.com">#1</a></br>…ef="https://b.a.localhost.com/miiwu">#6</a>', no_match: '<!doctype html><html><head><script type="tex…import harm; harm();</script></head></html>', text: 'miiwu'}
 
-{content: '', tag: '<!doctype html>', type: '!doctype', attribute: 'html'}
---------------------------------------------------
-{content: '', tag: '<html>', type: 'html', attribute: ''}
---------------------------------------------------
-{content: '', tag: '<head>', type: 'head', attribute: ''}
---------------------------------------------------
-{content: '', tag: '</br>', type: '/br', attribute: ''}
---------------------------------------------------
-{content: '', tag: '<title>', type: 'title', attribute: ''}
---------------------------------------------------
-{content: '', tag: '<title>', type: 'title', attribute: ''}
---------------------------------------------------
-{content: '#1', tag: '</title>', type: '/title', attribute: ''}
---------------------------------------------------
-{content: '#2', tag: '</title>', type: '/title', attribute: ''}
---------------------------------------------------
-{content: '', tag: '</br>', type: '/br', attribute: ''}
---------------------------------------------------
-{content: '', tag: '<a class="error" href="https://localhost.com/miiwu">', type: 'a', attribute: 'class="error" href="https://localhost.com/miiwu"'}
---------------------------------------------------
-{content: 'click', tag: '</a>', type: '/a', attribute: ''}
---------------------------------------------------
-{content: '', tag: '</br>', type: '/br', attribute: ''}
---------------------------------------------------
-{content: '', tag: '<p>', type: 'p', attribute: ''}
---------------------------------------------------
-{content: 'miiwu', tag: '</p>', type: '/p', attribute: ''}
---------------------------------------------------
-{content: '', tag: '</br>', type: '/br', attribute: ''}
---------------------------------------------------
-{content: '', tag: '<link href="https://localhost/miiwu">', type: 'link', attribute: 'href="https://localhost/miiwu"'}
---------------------------------------------------
-{content: '', tag: '</br>', type: '/br', attribute: ''}
---------------------------------------------------
-{content: '', tag: '<meta data-n-head="1" charset="utf-8">', type: 'meta', attribute: 'data-n-head="1" charset="utf-8"'}
---------------------------------------------------
-{content: '', tag: '<script type="text/javascript">', type: 'script', attribute: 'type="text/javascript"'}
---------------------------------------------------
-{content: 'import harm; harm();', tag: '</script>', type: '/script', attribute: ''}
---------------------------------------------------
-{content: '', tag: '<title>', type: 'title', attribute: ''}
---------------------------------------------------
-{content: '#3', tag: '</title>', type: '/title', attribute: ''}
---------------------------------------------------
-{content: '', tag: '</head>', type: '/head', attribute: ''}
---------------------------------------------------
-{content: '', tag: '</html>', type: '/html', attribute: ''}
---------------------------------------------------
+object: {no_element: {…}, half_element: {…}}
 
-pattern: .[^.]*.localhost.com
-allow.>> {content: '', tag: '<!doctype html>', type: '!doctype', attribute: 'html'}
+pattern: [^.]+.localhost.com
+
+allow.- : {content: '', tag: '<!doctype html>', type: '!doctype', attribute: 'html'}
 --------------------------------------------------
-allow.>> {content: '', tag: '<html>', type: 'html', attribute: ''}
+No.0 : {content: '', tag: '<!doctype html>', type: '!doctype', attribute: 'html'}
 --------------------------------------------------
-allow.>> {content: '', tag: '<head>', type: 'head', attribute: ''}
+allow.- : {content: '', tag: '<html>', type: 'html', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '</br>', type: '/br', attribute: ''}
+No.15 : {content: '', tag: '<html>', type: 'html', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '<title>', type: 'title', attribute: ''}
+allow.- : {content: '', tag: '<head>', type: 'head', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '<title>', type: 'title', attribute: ''}
+No.21 : {content: '', tag: '<head>', type: 'head', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '#1', tag: '</title>', type: '/title', attribute: ''}
+allow.+ : {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '</title>', type: '/title', attribute: ''}
+No.27 : {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '</br>', type: '/br', attribute: ''}
+allow.+ : {content: '', tag: '<title>', type: 'title', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '<a class="error" href="https://localhost.com/miiwu">', type: 'a', attribute: ''}
+No.32 : {content: '', tag: '<title>', type: 'title', attribute: ''}
 --------------------------------------------------
-allow.xx {content: 'click', tag: '</a>', type: '/a', attribute: ''}
+allow.+ : {content: '', tag: '<title>', type: 'title', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '</br>', type: '/br', attribute: ''}
+No.39 : {content: '', tag: '<title>', type: 'title', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '<p>', type: 'p', attribute: ''}
+allow.+ : {content: '#1', tag: '</title>', type: '/title', attribute: ''}
 --------------------------------------------------
-allow.xx {content: 'miiwu', tag: '</p>', type: '/p', attribute: ''}
+No.48 : {content: '#1', tag: '</title>', type: '/title', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '</br>', type: '/br', attribute: ''}
+allow.+ : {content: '', tag: '</title>', type: '/title', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '<link href="https://localhost/miiwu">', type: 'link', attribute: 'href="https://localhost/miiwu"'}
+No.58 : {content: '', tag: '</title>', type: '/title', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '</br>', type: '/br', attribute: ''}
+allow.+ : {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
-allow.>> {content: '', tag: '<meta data-n-head="1" charset="utf-8">', type: 'meta', attribute: 'data-n-head="1" charset="utf-8"'}
+No.66 : {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
-allow.>> {content: '', tag: '<script type="text/javascript">', type: 'script', attribute: 'type="text/javascript"'}
+allow.+ : {content: '', tag: '<a class="error" href="https://localhost.com/miiwu">', type: 'a', attribute: ''}
 --------------------------------------------------
-allow.>> {content: 'import harm; harm();', tag: '</script>', type: '/script', attribute: ''}
+No.71 : {content: '', tag: '<a class="error" href="https://localhost.com/miiwu">', type: 'a', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '', tag: '<title>', type: 'title', attribute: ''}
+allow.+ : {content: 'click', tag: '</a>', type: '/a', attribute: ''}
 --------------------------------------------------
-allow.xx {content: '#3', tag: '</title>', type: '/title', attribute: ''}
+No.128 : {content: 'click', tag: '</a>', type: '/a', attribute: ''}
 --------------------------------------------------
-allow.>> {content: '', tag: '</head>', type: '/head', attribute: ''}
+allow.+ : {content: '', tag: '</br>', type: '/br', attribute: ''}
 --------------------------------------------------
-allow.>> {content: '', tag: '</html>', type: '/html', attribute: ''}
+No.132 : {content: '', tag: '</br>', type: '/br', attribute: ''}
+--------------------------------------------------
+allow.+ : {content: '', tag: '<p>', type: 'p', attribute: ''}
+--------------------------------------------------
+No.137 : {content: '', tag: '<p>', type: 'p', attribute: ''}
+--------------------------------------------------
+allow.+ : {content: 'miiwu', tag: '</p>', type: '/p', attribute: ''}
+--------------------------------------------------
+No.145 : {content: 'miiwu', tag: '</p>', type: '/p', attribute: ''}
+--------------------------------------------------
+allow.+ : {content: '', tag: '</br>', type: '/br', attribute: ''}
+--------------------------------------------------
+No.149 : {content: '', tag: '</br>', type: '/br', attribute: ''}
+--------------------------------------------------
+allow.+ : {content: '', tag: '<link href="https://localhost/miiwu">', type: 'link', attribute: 'href="https://localhost/miiwu"'}
+--------------------------------------------------
+No.154 : {content: '', tag: '<link href="https://localhost/miiwu">', type: 'link', attribute: 'href="https://localhost/miiwu"'}
+--------------------------------------------------
+allow.+ : {content: '', tag: '</br>', type: '/br', attribute: ''}
+--------------------------------------------------
+No.191 : {content: '', tag: '</br>', type: '/br', attribute: ''}
+--------------------------------------------------
+allow.- : {content: '', tag: '<meta data-n-head="1" charset="utf-8">', type: 'meta', attribute: 'data-n-head="1" charset="utf-8"'}
+--------------------------------------------------
+No.196 : {content: '', tag: '<meta data-n-head="1" charset="utf-8">', type: 'meta', attribute: 'data-n-head="1" charset="utf-8"'}
+--------------------------------------------------
+allow.- : {content: '', tag: '<script type="text/javascript">', type: 'script', attribute: 'type="text/javascript"'}
+--------------------------------------------------
+No.234 : {content: '', tag: '<script type="text/javascript">', type: 'script', attribute: 'type="text/javascript"'}
+--------------------------------------------------
+allow.- : {content: 'import harm; harm();', tag: '</script>', type: '/script', attribute: ''}
+--------------------------------------------------
+No.285 : {content: 'import harm; harm();', tag: '</script>', type: '/script', attribute: ''}
+--------------------------------------------------
+allow.+ : {content: '', tag: '<title>', type: 'title', attribute: ''}
+--------------------------------------------------
+No.294 : {content: '', tag: '<title>', type: 'title', attribute: ''}
+--------------------------------------------------
+allow.+ : {content: '#3', tag: '</title>', type: '/title', attribute: ''}
+--------------------------------------------------
+No.303 : {content: '#3', tag: '</title>', type: '/title', attribute: ''}
+--------------------------------------------------
+allow.- : {content: '', tag: '</head>', type: '/head', attribute: ''}
+--------------------------------------------------
+No.311 : {content: '', tag: '</head>', type: '/head', attribute: ''}
+--------------------------------------------------
+allow.- : {content: '', tag: '</html>', type: '/html', attribute: ''}
+--------------------------------------------------
+No.318 : {content: '', tag: '</html>', type: '/html', attribute: ''}
 --------------------------------------------------
 block.>> {content: '', tag: '<!doctype html>', type: '!doctype', attribute: 'html'}
 --------------------------------------------------
@@ -148,12 +150,12 @@ block.>> {content: '', tag: '</head>', type: '/head', attribute: ''}
 --------------------------------------------------
 block.>> {content: '', tag: '</html>', type: '/html', attribute: ''}
 --------------------------------------------------
-raw text: miiwu
 
 vhtml.html.allow : </br><title><title>#1</title></title></br><a>click</a></br><p>miiwu</p></br><link href="https://localhost/miiwu"></br><title>#3</title>
 vhtml.html.block : </br><title><title>#1</title></title></br><a>click</a></br><p>miiwu</p></br><link href="https://localhost/miiwu"></br><title>#3</title>
-vhtml.attribute : <a>click</a>
-vhtml.nomatch :
-vhtml.text : miiwu
+vhtml.attribute : <a>#1</a><a>#2</a><a href="https://a.localhost.com">#3</a><a href="https://a.localhost.com/miiwu">#4</a><a>#5</a><a>#6</a>
+vhtml.no_match :
+vhtml.object.no_element : {name: 'miiwu', addr: 'github.com', repo: 'vhtml.regexp'}
+vhtml.object.half_element : {name: '</br><a href="localhost">miiwu</a>', addr: '</br><a href="localhost">github.com</a>', repo: '</br><a href="localhost">vhtml.regexp</a>'}
 
 bye vhtml demo.js
